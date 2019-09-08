@@ -21,6 +21,7 @@ class GenreControllerTest extends TestCase
             ->assertJson([$genre->toArray()]);
     }
 
+
     public function testShow()
     {
         $genre = factory(Genre::class)->create();
@@ -30,6 +31,7 @@ class GenreControllerTest extends TestCase
             ->assertStatus(200)
             ->assertJson($genre->toArray());
     }
+
 
     public function testInvalidationData()
     {
@@ -53,6 +55,7 @@ class GenreControllerTest extends TestCase
         $this->assertInvalidationBoolean($response);
     }
 
+
     private function assertInvalidationRequired(TestResponse $response)
     {
         $response
@@ -64,6 +67,7 @@ class GenreControllerTest extends TestCase
             ]);
     }
 
+
     private function assertInvalidationMax(TestResponse $response)
     {
         $response
@@ -74,6 +78,7 @@ class GenreControllerTest extends TestCase
             ]);
     }
 
+
     private function assertInvalidationBoolean(TestResponse $response)
     {
         $response
@@ -83,6 +88,7 @@ class GenreControllerTest extends TestCase
                 \Lang::trans('validation.boolean', ['attribute' => 'is active']),
             ]);
     }
+
 
     public function testStore()
     {
@@ -110,6 +116,7 @@ class GenreControllerTest extends TestCase
             ]);
     }
 
+
     public function testUpdate()
     {
         $genre = factory(Genre::class)->create([
@@ -131,6 +138,7 @@ class GenreControllerTest extends TestCase
                 'is_active' => true
             ]);
     }
+
 
     public function testDestroy()
     {

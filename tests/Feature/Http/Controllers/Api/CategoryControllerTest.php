@@ -21,6 +21,7 @@ class CategoryControllerTest extends TestCase
             ->assertJson([$category->toArray()]);
     }
 
+
     public function testShow()
     {
         $category = factory(Category::class)->create();
@@ -30,6 +31,7 @@ class CategoryControllerTest extends TestCase
             ->assertStatus(200)
             ->assertJson($category->toArray());
     }
+
 
     public function testInvalidationData()
     {
@@ -53,6 +55,7 @@ class CategoryControllerTest extends TestCase
         $this->assertInvalidationBoolean($response);
     }
 
+
     private function assertInvalidationRequired(TestResponse $response)
     {
         $response
@@ -64,6 +67,7 @@ class CategoryControllerTest extends TestCase
             ]);
     }
 
+
     private function assertInvalidationMax(TestResponse $response)
     {
         $response
@@ -74,6 +78,7 @@ class CategoryControllerTest extends TestCase
             ]);
     }
 
+
     private function assertInvalidationBoolean(TestResponse $response)
     {
         $response
@@ -83,6 +88,7 @@ class CategoryControllerTest extends TestCase
                 \Lang::trans('validation.boolean', ['attribute' => 'is active']),
             ]);
     }
+
 
     public function testStore()
     {
@@ -112,6 +118,7 @@ class CategoryControllerTest extends TestCase
                 'is_active' => false,
             ]);
     }
+
 
     public function testUpdate()
     {
@@ -161,6 +168,7 @@ class CategoryControllerTest extends TestCase
             'description' => null,
         ]);
     }
+
 
     public function testDestroy()
     {
